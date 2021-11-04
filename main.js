@@ -51,8 +51,10 @@ const addName = document.getElementById('name');
 const addRole = document.getElementById('role');
 const addImg = document.getElementById('image');
 
+// print in dom 
 printObjectsInDom(members, teamContainer);
 
+// add new member 
 addBtn.addEventListener('click', () => {
     members.push(
         {
