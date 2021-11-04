@@ -46,21 +46,56 @@ const members = [
 
 // dom refs 
 const teamContainer = document.querySelector('.team-container');
+const addBtn = document.getElementById('addMemberButton');
+const addName = document.getElementById('name');
+const addRole = document.getElementById('role');
+const addImg = document.getElementById('image');
+
+printObjectsInDom(members, teamContainer);
+
+addBtn.addEventListener('click', () => {
+    members.push(
+        {
+            name : addName.value.trim(),
+            role : addRole.value.trim(),
+            image : addImg.value.trim(),
+        },
+    )
+    printObjectsInDom(members, teamContainer);
+})
 
 
-for (let key in members) {
-    let member = members[key];
-    teamContainer.innerHTML += `
-    <div class="team-card">
-    <div class="card-image">
-      <img
-        src="${member.image}"
-        alt="${member.name}"
-      />
-    </div>
-    <div class="card-text">
-      <h3>${member.name}</h3>
-      <p>${member.role}</p>
-    </div>
-  </div>`
+
+
+
+
+
+
+
+/* FUNCTIONS */
+
+/**
+ * 
+ * @param {array} objectsArray 
+ * @param {node} container 
+ * prints in dom objects from an array 
+ */
+function printObjectsInDom (objectsArray, container) {
+    container.innerHTML = ''
+    for (let key in objectsArray) {
+        let member = objectsArray[key];
+        container.innerHTML += `
+        <div class="team-card">
+        <div class="card-image">
+          <img
+            src="${member.image}"
+            alt="${member.name}"
+          />
+        </div>
+        <div class="card-text">
+          <h3>${member.name}</h3>
+          <p>${member.role}</p>
+        </div>
+      </div>`
+    }
 }
