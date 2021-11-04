@@ -58,6 +58,9 @@ printObjectsInDom(members, teamContainer);
 addBtn.addEventListener('click', () => {
     pushNewObject(members, addName, addRole, addImg);
     printObjectsInDom(members, teamContainer);
+    addName.value = '';
+    addRole.value = '';
+    addImg.value = '';
 })
 
 
