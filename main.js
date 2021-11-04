@@ -56,13 +56,7 @@ printObjectsInDom(members, teamContainer);
 
 // add new member 
 addBtn.addEventListener('click', () => {
-    members.push(
-        {
-            name : addName.value.trim(),
-            role : addRole.value.trim(),
-            image : addImg.value.trim(),
-        },
-    )
+    pushNewObject(members, addName, addRole, addImg);
     printObjectsInDom(members, teamContainer);
 })
 
@@ -100,4 +94,23 @@ function printObjectsInDom (objectsArray, container) {
         </div>
       </div>`
     }
+}
+
+
+/**
+ * 
+ * @param {array} array 
+ * @param {string} userNameInput 
+ * @param {string} userRoleInput 
+ * @param {string} userImageInput 
+ * pushes user's values as an object into an array
+ */
+function pushNewObject (array, userNameInput, userRoleInput, userImageInput) {
+    const newObject = {
+        name : userNameInput.value,
+        role : userRoleInput.value,
+        image : userImageInput.value,
+    }
+
+    array.push(newObject);
 }
